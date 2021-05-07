@@ -7,6 +7,8 @@
 
 namespace Pyz\Zed\Oms;
 
+use Pyz\Zed\Oms\Communication\Plugin\Command\Demo\PayCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Condition\Demo\IsAuthorizedCondition;
 use Pyz\Zed\MerchantOms\Communication\Plugin\Oms\CloseMerchantOrderItemCommandPlugin;
 use Pyz\Zed\MerchantOms\Communication\Plugin\Oms\ReturnMerchantOrderItemCommandPlugin;
 use Pyz\Zed\MerchantSalesOrder\Communication\Plugin\Oms\Condition\IsOrderPaidConditionPlugin;
@@ -124,6 +126,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             $commandCollection->add(new PartialCaptureCommandByOrderPlugin(), 'Payone/PartialCapture');
             $commandCollection->add(new SavePartialRefundCommandPlugin(), 'Payone/SavePartialRefund');
             $commandCollection->add(new PartialRefundCommandPlugin(), 'Payone/PartialRefund');
+            $commandCollection->add(new PayCommand(), 'Demo/Pay');
 
             return $commandCollection;
         });
@@ -157,6 +160,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             $conditionCollection->add(new PaymentIsRefundConditionPlugin(), 'Payone/PaymentIsRefund');
             $conditionCollection->add(new PaymentIsPaidConditionPlugin(), 'Payone/PaymentIsPaid');
             $conditionCollection->add(new AuthorizationIsErrorConditionPlugin(), 'Payone/AuthorizationIsError');
+            $conditionCollection->add(new IsAuthorizedCondition(), 'Demo/IsAuthorized');
 
             return $conditionCollection;
         });
