@@ -382,6 +382,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CustomerPasswordSetConsole(),
 
             new OrderInvoiceSendConsole(),
+
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_ANTELOPE),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();

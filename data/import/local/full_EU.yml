@@ -331,3 +331,7 @@ actions:
     source: data/import/common/DE/merchant_product_offer_store.csv
   - data_entity: merchant-product-offer-store
     source: data/import/common/AT/merchant_product_offer_store.csv
+
+
+  - data_entity: antelope
+    source: data/import/common/antelope.csv

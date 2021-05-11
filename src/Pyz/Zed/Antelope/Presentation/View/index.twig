@@ -1,0 +1,47 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'View Antelope' %}
+
+{% block head_title %}
+    {{ widget_title | trans }}
+{% endblock %}
+{% block section_title %}
+    {{ widget_title | trans }}
+{% endblock %}
+
+{% block action %}
+    {{ backActionButton('/antelope', 'List Antelopes' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Antelope' } %}
+
+        {% block widget_content %}
+
+            <div class="row">
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <th>
+                            {{ 'ID' | trans }}</th>
+                        <td>{{ antelope.idAntelope }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Name' | trans }}</th>
+                        <td>{{ antelope.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Color' | trans }}</th>
+                        <td>{{ antelope.color }}</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                </table>
+            </div>
+
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

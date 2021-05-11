@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\DataImport\Business;
 
+use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeWriterStep;
 use Generated\Shared\Transfer\DataImportConfigurationActionTransfer;
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Pyz\Zed\DataImport\Business\CombinedProduct\Product\CombinedAttributesExtractorStep;
@@ -293,6 +294,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
                 return $this->createNavigationNodeImporter($dataImportConfigurationActionTransfer);
             case DataImportConfig::IMPORT_TYPE_MERCHANT_USER:
                 return $this->createMerchantUserImporter($dataImportConfigurationActionTransfer);
+            case DataImportConfig::IMPORT_TYPE_ANTELOPE:
+                return $this->createAntelopeImporter($dataImportConfigurationActionTransfer);
             default:
                 return null;
         }
@@ -2780,4 +2783,25 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         return new ProductStockReader();
     }
+
+    /**
+     * @param \Generated\Shared\Transfer\DataImportConfigurationActionTransfer $dataImportConfigurationActionTransfer
+     *
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createAntelopeImporter(DataImportConfigurationActionTransfer $dataImportConfigurationActionTransfer)
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig(
+            $this->getConfig()->buildImporterConfigurationByDataImportConfigAction($dataImportConfigurationActionTransfer)
+        );
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new AntelopeWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
 }

@@ -20,7 +20,7 @@ class AttributeCartBasedBoostingQueryExpanderPlugin extends AbstractPlugin imple
     /**
      * @param \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface $searchQuery
      * @param array $requestParameters
-     *
+     * @api
      * @return \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface
      */
     public function expandQuery(QueryInterface $searchQuery, array $requestParameters = [])
