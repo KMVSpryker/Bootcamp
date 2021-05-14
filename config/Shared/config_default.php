@@ -508,7 +508,7 @@ $config[ApplicationConstants::BASE_URL_YVES]
         $yvesPort !== 443 ? ':' . $yvesPort : ''
     );
 
-$config[ShopUiConstants::YVES_ASSETS_URL_PATTERN] = '/assets/' . (getenv('SPRYKER_BUILD_HASH') ?: 'current') . '/%theme%/';
+$config[ShopUiConstants::YVES_ASSETS_URL_PATTERN] = '/assets/' . (getenv('SPRYKER_BUILD_HASH') ?: 'current') . '/%theme%/%codeBucket%';
 
 // ----------------------------------------------------------------------------
 // ------------------------------ API -----------------------------------------

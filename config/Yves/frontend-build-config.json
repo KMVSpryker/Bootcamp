@@ -1,11 +1,23 @@
 {
-    "path": "assets/%SPRYKER_BUILD_HASH%/%theme%",
+    "path": "assets/%SPRYKER_BUILD_HASH%/%theme%/%codeBucket%",
     "staticPath": "assets/static",
     "namespaces": [
         {
-            "codeBucket": "",
-            "namespace": "",
+              "codeBucket": "DE",
+          "namespace": "DE",
+          "themes": [],
+          "defaultTheme": "default"
+        },
+        {
+                "codeBucket": "AT",
+            "namespace": "AT",
             "themes": [],
+            "defaultTheme": "default"
+        },
+        {
+            "codeBucket": "US",
+            "namespace": "US",
+            "themes": ["alternative"],
             "defaultTheme": "default"
         }
     ]

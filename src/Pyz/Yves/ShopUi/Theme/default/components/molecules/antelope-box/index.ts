@@ -1,0 +1,1 @@
+import './antelope-box.scss';

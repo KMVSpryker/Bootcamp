@@ -101,7 +101,8 @@ const getAppSettingsByTheme = (namespaceConfig, theme, pathToConfig) => {
         namespaceJson.path
             .replace(/%SPRYKER_BUILD_HASH%/gi, process.env.SPRYKER_BUILD_HASH || 'current')
             .replace(/%namespace%/gi, namespaceConfig.namespace)
-            .replace(/%theme%/gi, theme);
+            .replace(/%theme%/gi, theme)
+            .replace(/%codeBucket%/gi, namespaceConfig.codeBucket);
 
     const getPublicStaticUrl = () => namespaceJson.staticPath;
 

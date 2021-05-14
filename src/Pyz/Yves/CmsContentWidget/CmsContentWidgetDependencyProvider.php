@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\CmsContentWidget;
 
+use Pyz\Shared\CmsContentWidgetAntelopeConnector\ContentWidgetConfigurationProvider\CmsContentWidgetAntelopeConnectorConfigurationProvider;
+use Pyz\Yves\CmsContentWidgetAntelopeConnector\Plugin\CmsContentWidget\AntelopeContentWidgetPlugin;
 use Spryker\Shared\CmsContentWidgetCmsBlockConnector\ContentWidgetConfigurationProvider\CmsContentWidgetCmsBlockConnectorConfigurationProvider;
 use Spryker\Yves\CmsContentWidget\CmsContentWidgetDependencyProvider as SprykerCmsContentWidgetDependencyProvider;
 use Spryker\Yves\CmsContentWidgetCmsBlockConnector\Plugin\CmsContentWidget\CmsBlockContentWidgetPlugin;
@@ -43,6 +45,9 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
             CmsContentWidgetCmsBlockConnectorConfigurationProvider::FUNCTION_NAME => new CmsBlockContentWidgetPlugin(
                 new CmsContentWidgetCmsBlockConnectorConfigurationProvider()
             ),
+            CmsContentWidgetAntelopeConnectorConfigurationProvider::FUNCTION_NAME => new AntelopeContentWidgetPlugin(
+                                new CmsContentWidgetAntelopeConnectorConfigurationProvider()
+                ),
         ];
     }
 }

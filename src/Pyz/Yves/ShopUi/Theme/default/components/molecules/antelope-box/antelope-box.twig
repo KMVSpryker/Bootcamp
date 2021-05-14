@@ -1,0 +1,14 @@
+{% extends model('component') %}
+
+{% define config = {
+    name: 'antelope-box',
+    tag: 'div'
+} %}
+
+{% define data = {
+    name: required
+} %}
+
+{% block body %}
+    <h1 class="{{config.name}}__name">--- {{ data.name }} ---</h1>
+{% endblock %}

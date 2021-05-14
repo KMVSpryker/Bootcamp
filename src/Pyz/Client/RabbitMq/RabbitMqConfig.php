@@ -135,6 +135,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             SalesReturnSearchConfig::SYNC_SEARCH_RETURN,
             MerchantSearchConfig::SYNC_SEARCH_MERCHANT,
             ProductConfigurationStorageConfig::PRODUCT_CONFIGURATION_SYNC_STORAGE_QUEUE,
+            'sync.search.antelope',
         ];
     }
 

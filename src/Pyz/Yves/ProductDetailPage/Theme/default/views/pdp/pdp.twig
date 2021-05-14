@@ -6,6 +6,9 @@
             idProductAbstract: data.product.idProductAbstract,
         } %}
     </div>
-
+    {% widget 'AntelopeWidget' args ['Bob'] only %}
+         {% nowidget %}
+         <h1>Nothing to see here!</h1>
+         {% endwidget %}
     {{ parent() }}
 {% endblock %}
